@@ -1,0 +1,398 @@
+/* stylelint-disable selector-max-empty-lines */
+/* stylelint-disable selector-pseudo-class-parentheses-space-inside */
+/* stylelint-disable indentation */
+
+/*
+===============================================================
+element plus 样式
+===============================================================
+*/
+
+html.dark {
+  // 弹窗样式覆盖
+  .el-dialog {
+    overflow: hidden;
+    border-radius: 8px;
+
+    .el-dialog__header {
+      position: relative;
+      padding: 12px 24px;
+      margin-right: 0;
+      background-color: var(--bg-color-tertiary);
+      border-bottom: 1px solid var(--bg-color-primary);
+
+      .el-dialog__title {
+        font-size: 16px;
+      }
+
+      .el-dialog__headerbtn {
+        top: 50%;
+        right: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+        font-size: 16px;
+        transform: translateY(-50%);
+
+        .el-dialog__close {
+          font-size: 20px;
+        }
+      }
+    }
+
+    .el-dialog__body,
+    .el-dialog__footer {
+      background-color: var(--bg-color-secondary);
+    }
+  }
+
+  // 表格样式覆盖
+  .el-table {
+    --el-table-border-color: var(--border-color-secondary);
+
+    .el-table__body-wrapper tr {
+      background-color: var(--bg-color-secondary);
+
+      &.hover-row td {
+        background-color: var(--bg-table-hover) !important;
+      }
+    }
+
+    th {
+      &.el-table__cell {
+        background-color: var(--bg-color-tertiary);
+        border-bottom: none;
+      }
+
+      &.el-table-fixed-column--right {
+        box-shadow: -2px 0 8px 0 var(--bg-color-duodecenary);
+      }
+    }
+
+    td {
+      &.el-table__cell {
+        height: 54px;
+        padding: 0;
+      }
+
+      &.el-table-fixed-column--right {
+        background-color: var(--bg-color-secondary);
+        box-shadow: -2px 0 8px 0 var(--bg-color-duodecenary);
+      }
+    }
+  }
+
+  // 树组件样式覆盖
+  .el-tree {
+    .el-tree-node__expand-icon.is-leaf {
+      visibility: hidden;
+    }
+  }
+
+  // 按钮样式覆盖
+  .el-button {
+    color: var(--font-color-primary);
+
+    &.is-link {
+      color: var(--el-button-text-color);
+    }
+
+    &:not(
+        .is-link,
+        .el-button--primary,
+        .el-button--danger,
+        .el-button--success,
+        .el-button--warning,
+        .el-button--info
+      ) {
+      background-color: var(--bg-color-quaternary);
+      border: 1px solid var(--border-color-primary);
+      border-radius: 4px;
+
+      &:active {
+        background-color: var(--bg-color-quinary);
+      }
+    }
+
+    &.el-button--primary:not(.is-link) {
+      background-color: var(--color-primary);
+      border-color: transparent;
+
+      &:active {
+        background-color: #21adff;
+      }
+    }
+
+    &.el-button--danger:not(.is-link) {
+      background-color: var(--color-danger);
+      border-color: transparent;
+    }
+
+    &.el-button--success:not(.is-link) {
+      background-color: var(--color-success);
+      border-color: transparent;
+    }
+
+    &.el-button--warning:not(.is-link) {
+      background-color: var(--color-warning);
+      border-color: transparent;
+    }
+
+    &.el-button--info:not(.is-link) {
+      background-color: var(--color-info);
+      border-color: transparent;
+    }
+
+    &[disabled],
+    &[disabled]:hover,
+    &[disabled]:focus,
+    &[disabled]:active {
+      pointer-events: none;
+      opacity: 0.7;
+    }
+
+    &:hover {
+      opacity: 0.85;
+    }
+
+    &:active,
+    &:focus {
+      opacity: 1;
+    }
+  }
+
+  // 输入框样式覆盖
+  .el-input {
+    --el-border-color: transparent;
+    --el-border-color-hover: transparent;
+    --el-color-primary: var(--color-primary);
+
+    .el-input__wrapper {
+      background-color: var(--bg-color-senary);
+    }
+
+    &.is-disabled {
+      opacity: 0.6;
+
+      .el-input__wrapper {
+        box-shadow: none;
+      }
+    }
+  }
+
+  // 选择器样式覆盖
+  .el-select__popper,
+  .el-dropdown__popper {
+    --el-box-shadow-light: 0 0 12px 0 rgba(0, 0, 0, 0.4);
+
+    &.el-popper {
+      border: none;
+    }
+
+    .el-scrollbar {
+      padding: 7px;
+      background-color: var(--bg-color-tertiary);
+      border: 1px solid var(--border-color-secondary);
+      border-radius: 6px;
+
+      .el-select-dropdown__item {
+        border-radius: 4px;
+
+        &.selected {
+          color: var(--font-color-primary);
+          background-color: #21578f !important;
+        }
+      }
+
+      .el-select-dropdown__item.hover,
+      .el-select-dropdown__item:hover {
+        background-color: var(--bg-color-septenary);
+      }
+    }
+
+    .el-popper__arrow {
+      display: none;
+    }
+  }
+
+  .el-tree-select__popper {
+    .el-scrollbar .el-select-dropdown__item.selected {
+      background-color: transparent !important;
+    }
+  }
+
+  .el-select {
+    .el-input.is-disabled .el-input__wrapper:hover {
+      box-shadow: none;
+    }
+  }
+
+  // 下拉菜单样式覆盖
+  .el-dropdown__popper {
+    .el-dropdown-menu {
+      padding: 0;
+      background-color: transparent;
+    }
+
+    .el-dropdown-menu__item {
+      border-radius: 4px;
+
+      &.selected {
+        color: var(--font-color-primary);
+        background-color: #21578f;
+      }
+
+      &:hover {
+        color: var(--font-color-primary);
+        background-color: var(--bg-color-septenary);
+      }
+    }
+
+    .el-dropdown-menu__item--divided {
+      border-color: var(--line-color-tertiary);
+    }
+  }
+
+  // 消息提示样式覆盖
+  .el-message {
+    color: var(--font-color-primary);
+    background-color: var(--bg-color-quaternary);
+    border: 1px solid var(--border-color-secondary);
+    border-radius: 6px;
+    box-shadow: 0 0 12px 0 var(--bg-color-duodecenary);
+
+    .el-message__content {
+      color: var(--font-color-primary);
+    }
+  }
+
+  // 消息盒子样式覆盖
+  .el-message-box {
+    background-color: var(--bg-color-secondary);
+    border-radius: 8px;
+    box-shadow: 0 4px 20px 0 var(--bg-color-terdecenary);
+
+    .el-message-box__headerbtn {
+      display: none;
+    }
+
+    &.custom-message-box_weather-warning {
+      .el-message-box__header {
+        padding: 24px 24px 20px;
+
+        .el-message-box__title {
+          font-size: 16px;
+          color: var(--font-color-primary);
+        }
+      }
+
+      .el-message-box__content {
+        padding: 0 24px 36px;
+      }
+
+      .el-message-box__btns {
+        padding-bottom: 20px;
+      }
+    }
+  }
+
+  // 弹出框Popover样式覆盖
+  .el-popper {
+    color: var(--font-color-primary);
+    background-color: var(--bg-color-secondary);
+    border: 1px solid var(--border-color-secondary);
+    border-radius: 6px;
+    box-shadow: 0 0 12px 0 var(--bg-color-quindecenary);
+
+    .el-popper__arrow {
+      display: none;
+    }
+  }
+
+  // 单选按钮组样式覆盖
+  .el-radio-group {
+    box-sizing: border-box;
+    padding: 2px;
+    background-color: var(--bg-color-secondary);
+    border-radius: 4px;
+
+    .el-radio-button {
+      border-radius: 3px;
+
+      .el-radio-button__inner {
+        color: var(--font-color-secondary);
+        background-color: transparent;
+        border-color: transparent;
+        box-shadow: none;
+      }
+
+      &.is-active {
+        background-color: var(--bg-color-quaternary);
+
+        .el-radio-button__inner {
+          color: var(--font-color-primary);
+        }
+      }
+
+      &:hover:not(.is-active) {
+        background-color: var(--bg-color-senary);
+      }
+
+      &:active:not(.is-active) {
+        background-color: var(--bg-color-septenary);
+      }
+    }
+  }
+
+  // 抽屉弹窗覆盖
+  .el-drawer {
+    --el-drawer-bg-color: var(--bg-color-secondary);
+
+    .el-drawer__header {
+      height: 60px;
+      padding: 0 16px;
+      margin: 0;
+      border-bottom: 1px solid var(--border-color-secondary);
+    }
+
+    .el-drawer__title {
+      font-size: 16px;
+      color: var(--font-color-primary);
+    }
+  }
+
+  .el-loading-mask {
+    --el-mask-color: rgb(0 0 0 / 0.5);
+  }
+
+  // el-notification 样式覆盖
+  .el-notification {
+    background-color: #fff;
+
+    .el-notification__title {
+      font-size: 14px;
+      font-weight: 500;
+      color: #333;
+    }
+
+    .el-notification__content {
+      color: #333;
+    }
+
+    .el-notification__closeBtn {
+      color: #333;
+    }
+
+    &.warning-notification {
+      &.left {
+        left: 80px;
+      }
+
+      .el-notification__title {
+        color: var(--color-danger);
+      }
+    }
+  }
+}

@@ -1,0 +1,72 @@
+/*
+===============================================================
+主题样式文件
+===============================================================
+*/
+
+:root {
+  /* TODO 白色主题 */
+
+  /* 字号序列 */
+  --font-size-base: 14px;
+}
+
+.dark {
+  /* 主题色 */
+  --color-primary: #08a4ff;
+  --color-success: #33a853;
+  --color-info: #fbbc06;
+  --color-warning: #ff9000;
+  --color-danger: #ea4435;
+
+  /* 文字颜色序列 */
+  --font-color-primary: rgba(255 255 255 / 85%);
+  --font-color-secondary: rgba(255 255 255 / 55%);
+  --font-color-tertiary: rgba(255 255 255 / 25%);
+  --font-color-quaternary: rgba(255 255 255 / 15%);
+  --font-color-quinary: rgba(255 255 255 / 65%);
+  --font-color-strong: #fff;
+
+  /* 背景颜色序列 */
+  --bg-color-primary: #222;
+  --bg-color-secondary: #333;
+  --bg-color-tertiary: #444;
+  --bg-color-quaternary: #555;
+  --bg-color-quinary: #666;
+  --bg-color-senary: rgba(255 255 255 / 6%);
+  --bg-color-septenary: rgba(255 255 255 / 10%);
+  --bg-color-octonary: rgba(255 255 255 / 15%);
+  --bg-color-nonary: rgba(255 255 255 / 20%);
+  --bg-color-decenary: rgba(255 255 255 / 25%);
+  --bg-color-undecenary: rgba(0 0 0 / 10%);
+  --bg-color-duodecenary: rgba(0 0 0 / 20%);
+  --bg-color-thrdecenary: rgba(0 0 0 / 30%);
+  --bg-color-terdecenary: rgba(0 0 0 / 50%);
+  --bg-color-quattuordecenary: #1a1a1a;
+  --bg-color-quindecenary: rgba(0 0 0 / 60%);
+  --bg-color-sexdecenary: rgba(0 0 0);
+  --bg-color-septendecenary: rgba(255 255 255 / 3%);
+  --bg-color-octodecenary: rgba(0 0 0 / 70%);
+  --bg-color-novendecenary: rgba(0 0 0 / 40%);
+  --bg-table-hover: #393939;
+  --bg-table-danger: rgba(234, 68, 53, 0.2);
+  --bg-color-success: rgba(51, 168, 83, 0.2);
+  --bg-color-subpanel: #202020;
+  --bg-color-subpanel-hover: #2a2a2a;
+  --bg-color-custom-card: rgba(255 255 255 / 4%);
+
+  /* 背景颜色序列-激活 */
+  --bg-color-primary-active: rgb(8 164 255 / 5%);
+  --bg-color-danger: rgb(234 68 53/ 20%);
+
+  /* svg颜色序列 */
+  --svg-color: #fff;
+
+  /* 线条颜色序列 */
+  --line-color-primary: #111;
+  --line-color-secondary: rgba(255 255 255 / 10%);
+  --line-color-tertiary: rgba(255 255 255 / 8%);
+  --border-color-primary: rgba(255 255 255 / 25%);
+  --border-color-secondary: rgba(255 255 255 / 10%);
+  --border-color-tertiary: rgba(255 255 255);
+}
