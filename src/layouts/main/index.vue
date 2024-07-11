@@ -17,7 +17,9 @@ defineOptions({
 .app-main {
   position: relative;
   width: 100%;
-  overflow: hidden;
-  border: 2px solid #e13a07;
+  // overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  // background-color: #ffffff;
 }
 </style>

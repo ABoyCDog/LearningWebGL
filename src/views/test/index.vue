@@ -1,20 +1,20 @@
 <template>
-  <div>
-    <div id="mapCOntainer"></div>
-    <canvas id="canvas"></canvas>
-  </div>
+  <div id="cesiumContainer" ref="viewerDivRef"></div>
 </template>
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import {onMounted, ref} from 'vue'
+import * as Cesium from 'cesium'
+
+//cesium初始化必须写在mounted生命周期里面，否则会报错"Element with id "cesiumContainer" does not exist in the document."
+onMounted(() => {
+  const viewer = new Cesium.Viewer('cesiumContainer', {
+    //这里是配置项
+  })
+})
+</script>
 <style scoped>
-#mapCOntainer {
-  width: 100%;
-  height: 100vh;
-}
-#canvas {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
+#cesiumContainer {
+  width: 100vw;
   height: 100vh;
 }
 </style>

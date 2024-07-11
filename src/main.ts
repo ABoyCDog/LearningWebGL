@@ -21,4 +21,10 @@ async function setupApp() {
   app.mount("#app");
 }
 
+declare global {
+  interface Window {
+    CESIUM_BASE_URL: string
+  }
+}
+
 setupApp();

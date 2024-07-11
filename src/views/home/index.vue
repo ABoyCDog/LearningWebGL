@@ -4,25 +4,17 @@ import { ref } from "vue";
 
 // import { defineProps } from "vue";
 
-const count = ref(0);
-
-const goToTest = () => {
-  console.log("goToTest");
-  router.push({ name: "testIndex" });
-};
 </script>
 
 <template>
-  <h1>WebGLLearing Home Page</h1>
-
-  <div class="card">
-    <button type="button" @click="count++">count is {{ count }}</button>
-    <button type="button" @click="goToTest()">test组件</button>
-  </div>
+  <h1 class="h1">WebGLLearing Home Page</h1>
 </template>
 
-<style scoped>
+<style lang="less" scoped>
 .read-the-docs {
   color: #888;
+}
+.h1 {
+  text-align: center;
 }
 </style>

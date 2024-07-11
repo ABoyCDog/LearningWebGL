@@ -4,6 +4,7 @@ import vueJsx from "@vitejs/plugin-vue-jsx";
 import path from "path";
 import svgLoader from "vite-svg-loader";
 import { configSvgIconsPlugin } from "./build/vite/plugin/svg-icon";
+import cesium from 'vite-plugin-cesium';
 
 // https://vitejs.dev/config/
 export default defineConfig(({ command, mode }) => {
@@ -17,6 +18,7 @@ export default defineConfig(({ command, mode }) => {
       vueJsx(),
       svgLoader({ defaultImport: "url" }),
       configSvgIconsPlugin(isBuild),
+      cesium(),
     ],
     resolve: {
       // alias: {
