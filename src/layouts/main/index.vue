@@ -1,9 +1,9 @@
 <script lang="ts" setup>
-import { computed, onMounted } from "vue";
+import { computed, onMounted } from 'vue';
 
 // 主页面
 defineOptions({
-  name: "LayoutMain",
+  name: 'LayoutMain',
 });
 </script>
 
@@ -17,9 +17,7 @@ defineOptions({
 .app-main {
   position: relative;
   width: 100%;
-  // overflow: hidden;
   display: flex;
   flex-direction: row;
-  // background-color: #ffffff;
 }
 </style>

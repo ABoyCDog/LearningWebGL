@@ -1,5 +1,42 @@
+<script lang="ts" setup>
+import { ref, watch } from 'vue';
+import { useRoute, useRouter } from 'vue-router';
+import { basicRoutes as menus } from '@/router/modules/basic';
+
+// 监听路由变化，修改菜单激活栏
+const route = useRoute();
+const router = useRouter();
+
+const isCollapse = ref(true); // 侧边栏是否折叠
+const activePath = ref();
+
+watch(
+  () => route.meta.activePath,
+  (newPath, oldPath) => {
+    if (newPath !== oldPath) {
+      activePath.value = newPath;
+    }
+  },
+  {
+    immediate: true,
+  },
+);
+
+const defaultOpenArr = menus.map((item) => item.path);
+
+const linkTo = (name: string | any, path: string | any) => {
+  activePath.value = path;
+  router.push({ name });
+};
+
+// 切换侧边栏折叠状态
+const toggleCollapse = () => {
+  isCollapse.value = !isCollapse.value;
+};
+</script>
+
 <template>
-  <div class="sider-container">
+  <div :class="['sider-container', isCollapse ? 'sider-collapse' : 'sider-open']">
     <div class="collapse-icon" @click="toggleCollapse">
       <svg-icon size="24" name="menu-open" />
     </div>
@@ -8,70 +45,30 @@
         active-text-color="#ffd04b"
         background-color="#545c64"
         text-color="#fff"
-        default-active="1"
         class="el-menu"
-        collapse-transition="false"
         :collapse="isCollapse"
-        @open="handleOpen"
-        @close="handleClose"
+        :default-active="activePath"
+        :default-openeds="defaultOpenArr"
       >
-      <el-sub-menu index="1">
+        <el-sub-menu v-for="item in menus" :key="item.path" :index="item.path">
           <template #title>
-            <svg-icon size="28" name="webgl" class="svg-class" />
-            <span>WebGL</span>
+            <svg-icon size="24" :name="item.meta.icon" class="svg-class" />
+            <span>{{ item.meta.title }}</span>
           </template>
-          <el-menu-item-group>
-            <el-menu-item index="1-1" @click="goToTest()">test</el-menu-item>
-            <el-menu-item index="1-2">item two</el-menu-item>
-          </el-menu-item-group>
-        </el-sub-menu>
-        <el-sub-menu index="2">
-          <template #title>
-            <svg-icon size="20" name="cesium" class="svg-class" />
-            <span>CesiumJS</span>
+          <template v-if="item.children">
+            <el-menu-item
+              v-for="el in item.children"
+              :key="el.meta?.acitvePath"
+              @click="linkTo(el.name, el.path)"
+              :index="el.meta?.activePath"
+              >{{ el.meta?.title }}</el-menu-item
+            >
           </template>
-          <el-menu-item-group>
-            <el-menu-item index="1-1" @click="goToRoute('testIndex')">test</el-menu-item>
-            <el-menu-item index="1-2">item two</el-menu-item>
-          </el-menu-item-group>
         </el-sub-menu>
-        <el-menu-item index="3">
-          <svg-icon size="20" name="three" class="svg-class" />
-          <template #title>ThreeJS</template>
-        </el-menu-item>
-        <el-menu-item index="4">
-          <svg-icon size="20" name="babylon" class="svg-class" />
-          <template #title>BabylonJS</template>
-        </el-menu-item>
       </el-menu>
     </div>
   </div>
 </template>
-
-<script lang="ts" setup>
-import { ref } from "vue";
-import { Menu as IconMenu } from "@element-plus/icons-vue";
-import { router } from '@/router';
-
-// 侧边栏是否折叠
-const isCollapse = ref(true);
-
-// 切换侧边栏折叠状态
-const toggleCollapse = () => {
-  isCollapse.value = !isCollapse.value;
-};
-
-const handleOpen = (key: string, keyPath: string[]) => {
-  console.log(key, keyPath);
-};
-const handleClose = (key: string, keyPath: string[]) => {
-  console.log(key, keyPath);
-};
-const goToRoute = (name: string) => {
-  console.log(name);
-  router.push({ name });
-};
-</script>
 
 <style lang="less" scoped>
 .el-menu-vertical-demo:not(.el-menu--collapse) {
@@ -85,14 +82,13 @@ const goToRoute = (name: string) => {
 
 .sider-container {
   // position: absolute;
-  left: 0;
-  top: 0;
+  height: 100%;
+  // min-height: 100vh;
+  // left: 0;
+  // top: 0;
   display: flex;
   flex-direction: column;
-  height: 100%;
-  min-height: 600px;
-  background-color: #333333;
-  opacity: 0.8;
+  background-color: #000000;
   .collapse-icon {
     height: 60px;
     display: flex;
@@ -100,10 +96,13 @@ const goToRoute = (name: string) => {
     justify-content: center;
   }
   .collapse-content {
-    padding: 0 1px;
-  }
-  .el-menu-item-group__title {
-    padding: 0;
+    .el-menu {
+      background-color: #000000;
+      border-right: none;
+    }
+    .el-menu-item-group__title {
+      padding: 0;
+    }
   }
 }
 </style>

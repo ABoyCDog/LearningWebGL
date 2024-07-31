@@ -1,13 +1,7 @@
-<script setup lang="ts">
-import { router } from "@/router";
-import { ref } from "vue";
-
-// import { defineProps } from "vue";
-
-</script>
+<script setup lang="ts"></script>
 
 <template>
-  <h1 class="h1">WebGLLearing Home Page</h1>
+  <h1 class="h1">GIS Learing</h1>
 </template>
 
 <style lang="less" scoped>
@@ -15,6 +9,9 @@ import { ref } from "vue";
   color: #888;
 }
 .h1 {
-  text-align: center;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 </style>

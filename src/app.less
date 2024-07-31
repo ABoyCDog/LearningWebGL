@@ -9,12 +9,20 @@
 // 引入过渡效果样式
 @import url('./styles/transition.less');
 
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
 #app {
   height: 100%;
   width: 100%;
   font-size: var(--font-size-base);
   color: var(--font-color-primary);
-  background-color: #333333;
+  background-color: #fff;
   overflow: hidden;
   svg {
     color: var(--svg-color);

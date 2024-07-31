@@ -8,12 +8,13 @@
 </template>
 
 <script setup lang="ts">
-import Sider from "./sider/index.vue";
-import Main from "./main/index.vue";
+import Sider from './sider/index.vue';
+import Main from './main/index.vue';
 </script>
 
 <style lang="less" scoped>
 .layouts {
   display: flex;
+  height: 100vh;
 }
 </style>

@@ -1,10 +1,11 @@
-import { createApp } from "vue";
+import { createApp } from 'vue';
 // import './style.css'
-import { setupPlugins } from "./plugins/index.ts";
-import { setupRouter } from "@/router";
-import { setupGlobalComponent } from "@/components/setupGlobalComponent.ts";
+import { setupPlugins } from './plugins/index.ts';
+import { setupRouter } from '@/router';
+import { setupGlobalComponent } from '@/components/setupGlobalComponent.ts';
+import { setupStore } from '@/stores';
 
-import App from "./App.vue";
+import App from './App.vue';
 
 async function setupApp() {
   const app = createApp(App);
@@ -12,19 +13,16 @@ async function setupApp() {
   // 安装插件
   setupPlugins(app);
 
+  // 安装状态库
+  setupStore(app);
+
   // 安装全局组件
   setupGlobalComponent(app);
 
   // 创建路由
   setupRouter(app);
 
-  app.mount("#app");
-}
-
-declare global {
-  interface Window {
-    CESIUM_BASE_URL: string
-  }
+  app.mount('#app');
 }
 
 setupApp();

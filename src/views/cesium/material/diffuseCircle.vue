@@ -1,8 +1,5 @@
 <script setup lang="ts"></script>
 
-<template>
-  <!-- 配置路由出口 -->
-  <router-view />
-</template>
+<template></template>
 
 <style lang="less" scoped></style>
