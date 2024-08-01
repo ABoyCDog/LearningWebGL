@@ -12,7 +12,7 @@
     "@types/node": "^20.14.9",
     "@vitejs/plugin-vue-jsx": "^4.0.0",
     "@vue/runtime-dom": "^3.4.31",
-    "cesium": "^1.119.0",
+    "cesium": "1.105.0",
     "cesium-heatmap-es6": "^0.8.0",
     "cesium-measure": "^0.2.10",
     "element-plus": "^2.7.6",
